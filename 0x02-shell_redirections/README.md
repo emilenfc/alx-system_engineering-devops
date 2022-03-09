@@ -1,0 +1,1 @@
+this script is about printing string
