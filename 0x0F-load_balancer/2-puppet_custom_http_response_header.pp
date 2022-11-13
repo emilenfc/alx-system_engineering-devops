@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to nginx on LXD container web1!</title>
-<style>
-  body {
-      width: 35em;
-      margin: 0 auto;
-      font-family: Tahoma, Verdana, Arial, sans-serif;
-  }
-</style>
-</head>
-<body>
-<h1>Welcome to nginx on LXD container web1!</h1>
-<p>If you see this page, the nginx web server is successfully installed and
-working. Further configuration is required.</p>
+#puppet advance
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell,
+}
+-> package {'nginx':
+  ensure => present,
+}
+-> file_line { 'header line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "	location / {
+  add_header X-Served-By ${hostname};",
+  match  => '^\tlocation / {',
+}
+-> exec { 'restart service':
+  command  => 'sudo service nginx restart',
+  provider => shell,
+}
