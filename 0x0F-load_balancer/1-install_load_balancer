@@ -5,5 +5,5 @@ sudo apt -y upgrade
 sudo apt-get install -y haproxy
 sudo sed -i "$ a\ENABLED=1" /etc/default/haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
-sudo sed -i "$ a\ \tlisten zandile \n\tmode http\n\tbind *:80\n\tbalance roundrobin\n\tserver 4496-web-02 54.242.100.177:80 check\n\tserver 4496-lb-01 34.229.80.1391:80 check" /etc/haproxy/haproxy.cfg
+sudo sed -i "$ a\ \tlisten zandile \n\tmode http\n\tbind *:80\n\tbalance roundrobin\n\tserver 25172-web-02 52.72.23.83:80 check\n\tserver 25172-web-01 54.237.86.111:80 check" /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
