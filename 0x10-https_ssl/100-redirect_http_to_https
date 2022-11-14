@@ -43,5 +43,5 @@ frontend www-https
         default_backend webserver
 backend webserver
     balance roundrobin
-    server 25172-web-01 54.237.86.111:80 check
-    server 25172-web-02 52.72.23.83:80 check
+    server 2152-web-01 35.196.31.36:80 check
+    server 2152-web-02 35.237.103.48:80 check
